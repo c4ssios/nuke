@@ -69,3 +69,17 @@ def contactSheetFromFiles():
         inputNum = nodeList.index(n)
         contactSheet.setInput(inputNum, n)
     #print(nuke.selectedNode())
+    
+#####################################
+
+def updateAllReadNodeToVersion():
+    readnodes = nuke.allNodes('Read')
+    for readnode in readnodes:
+        nodeName = readnode.fullName()
+
+        filePath=(readnode["file"].value())
+
+        newFilePath = filePath.replace("A15", "A17")
+
+        readnode["file"].setValue(newFilePath)
+
